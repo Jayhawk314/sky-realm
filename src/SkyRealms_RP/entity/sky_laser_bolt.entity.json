@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:laser_bolt",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_laser_bolt"
+      },
+      "geometry": {
+        "default": "geometry.sky_laser_bolt"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "face": "animation.sky.projectile_face"
+      },
+      "scripts": {
+        "animate": [
+          "face"
+        ]
+      }
+    }
+  }
+}

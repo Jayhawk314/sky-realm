@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:peter_egg",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_peter_egg"
+      },
+      "geometry": {
+        "default": "geometry.sky_peter_egg"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "wobble": "animation.sky.egg_wobble"
+      },
+      "scripts": {
+        "animate": [
+          "wobble"
+        ]
+      }
+    }
+  }
+}

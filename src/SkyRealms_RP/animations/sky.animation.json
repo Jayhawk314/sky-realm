@@ -1,0 +1,348 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.sky.hover_bob": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            "q.property('sky:flying') ? math.sin(q.life_time * 150) * 0.8 : 0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.blimp": {
+      "loop": true,
+      "bones": {
+        "propeller": {
+          "rotation": [
+            0,
+            0,
+            "q.life_time * (q.property('sky:flying') ? 900 : 40)"
+          ]
+        },
+        "balloon": {
+          "position": [
+            0,
+            "math.sin(q.life_time * 70) * 0.5",
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.dragon_wings": {
+      "loop": true,
+      "bones": {
+        "wing_l": {
+          "rotation": [
+            0,
+            0,
+            "q.property('sky:flying') ? math.sin(q.life_time * 560) * 38 : (14 + math.sin(q.life_time * 120) * 5)"
+          ]
+        },
+        "wing_r": {
+          "rotation": [
+            0,
+            0,
+            "q.property('sky:flying') ? -math.sin(q.life_time * 560) * 38 : -(14 + math.sin(q.life_time * 120) * 5)"
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "q.property('sky:flying') ? math.sin(q.life_time * 560 - 90) * 0.6 : 0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.dragon_walk": {
+      "loop": true,
+      "bones": {
+        "leg_fl": {
+          "rotation": [
+            "q.property('sky:flying') ? 25 : math.cos(q.modified_distance_moved * 38) * 35 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leg_br": {
+          "rotation": [
+            "q.property('sky:flying') ? 25 : math.cos(q.modified_distance_moved * 38) * 35 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leg_fr": {
+          "rotation": [
+            "q.property('sky:flying') ? 25 : -math.cos(q.modified_distance_moved * 38) * 35 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leg_bl": {
+          "rotation": [
+            "q.property('sky:flying') ? 25 : -math.cos(q.modified_distance_moved * 38) * 35 * q.modified_move_speed",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.dragon_tail": {
+      "loop": true,
+      "bones": {
+        "tail": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 90) * 10",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 90 - 40) * 16",
+            0
+          ]
+        },
+        "tail_tip": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 90 - 80) * 20",
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.look_at_target": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "q.target_x_rotation * 0.6",
+            "q.target_y_rotation * 0.6",
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.whale_swim": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            "math.sin(q.life_time * 40) * 1.5",
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "math.sin(q.life_time * 60) * 10",
+            0,
+            0
+          ]
+        },
+        "fluke": {
+          "rotation": [
+            "math.sin(q.life_time * 60 - 50) * 16",
+            0,
+            0
+          ]
+        },
+        "fin_l": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(q.life_time * 60) * 10"
+          ]
+        },
+        "fin_r": {
+          "rotation": [
+            0,
+            0,
+            "-math.sin(q.life_time * 60) * 10"
+          ]
+        }
+      }
+    },
+    "animation.sky.egg_wobble": {
+      "loop": true,
+      "bones": {
+        "egg": {
+          "rotation": [
+            0,
+            0,
+            "math.mod(q.life_time, 5) < 1 ? math.sin(q.life_time * 900) * 7 : 0"
+          ]
+        }
+      }
+    },
+    "animation.sky.projectile_face": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-q.target_x_rotation",
+            "-q.target_y_rotation",
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.peter_wings": {
+      "loop": true,
+      "bones": {
+        "wing_l": {
+          "rotation": [
+            0,
+            0,
+            "q.property('sky:flying') ? math.sin(q.life_time * 300) * 30 : (10 + math.sin(q.life_time * 90) * 3)"
+          ]
+        },
+        "wingtip_l": {
+          "rotation": [
+            0,
+            0,
+            "q.property('sky:flying') ? math.sin(q.life_time * 300 - 70) * 24 : -18"
+          ]
+        },
+        "wing_r": {
+          "rotation": [
+            0,
+            0,
+            "q.property('sky:flying') ? -math.sin(q.life_time * 300) * 30 : -(10 + math.sin(q.life_time * 90) * 3)"
+          ]
+        },
+        "wingtip_r": {
+          "rotation": [
+            0,
+            0,
+            "q.property('sky:flying') ? -math.sin(q.life_time * 300 - 70) * 24 : 18"
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "q.property('sky:flying') ? math.sin(q.life_time * 300 - 90) * 1.2 : 0",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "q.property('sky:flying') ? 6 + math.sin(q.life_time * 150) * 4 : 0",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.peter_walk": {
+      "loop": true,
+      "bones": {
+        "leg_fl": {
+          "rotation": [
+            "q.property('sky:flying') ? 35 : math.cos(q.modified_distance_moved * 25) * 30 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leg_br": {
+          "rotation": [
+            "q.property('sky:flying') ? 35 : math.cos(q.modified_distance_moved * 25) * 30 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leg_fr": {
+          "rotation": [
+            "q.property('sky:flying') ? 35 : -math.cos(q.modified_distance_moved * 25) * 30 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leg_bl": {
+          "rotation": [
+            "q.property('sky:flying') ? 35 : -math.cos(q.modified_distance_moved * 25) * 30 * q.modified_move_speed",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.peter_tail": {
+      "loop": true,
+      "bones": {
+        "tail1": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 80) * 6",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 80 - 30) * 9",
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 80 - 60) * 12",
+            0
+          ]
+        },
+        "tail4": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 80 - 90) * 14",
+            0
+          ]
+        },
+        "comet": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 80 - 120) * 16",
+            0
+          ]
+        },
+        "neck1": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 45) * 4",
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.peter_look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "q.target_x_rotation * 0.5",
+            "q.target_y_rotation * 0.5",
+            0
+          ]
+        }
+      }
+    },
+    "animation.sky.spin": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "q.life_time * 720",
+            "q.life_time * 540",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

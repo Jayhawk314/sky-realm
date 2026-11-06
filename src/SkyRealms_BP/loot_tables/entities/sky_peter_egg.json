@@ -1,0 +1,14 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "sky:peter_egg",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

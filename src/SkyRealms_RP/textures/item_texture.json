@@ -1,0 +1,42 @@
+{
+  "resource_pack_name": "sky_realms",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "sky_blaster": {
+      "textures": "textures/items/sky_blaster"
+    },
+    "sky_fighter_kit": {
+      "textures": "textures/items/sky_fighter_kit"
+    },
+    "sky_blimp_kit": {
+      "textures": "textures/items/sky_blimp_kit"
+    },
+    "sky_hoverboard_kit": {
+      "textures": "textures/items/sky_hoverboard_kit"
+    },
+    "sky_dragon_egg": {
+      "textures": "textures/items/sky_dragon_egg"
+    },
+    "sky_whale_song": {
+      "textures": "textures/items/sky_whale_song"
+    },
+    "sky_race_ring": {
+      "textures": "textures/items/sky_race_ring"
+    },
+    "sky_race_flag": {
+      "textures": "textures/items/sky_race_flag"
+    },
+    "sky_island_seed": {
+      "textures": "textures/items/sky_island_seed"
+    },
+    "sky_peter_egg": {
+      "textures": "textures/items/sky_peter_egg"
+    },
+    "sky_cloud_seed": {
+      "textures": "textures/items/sky_cloud_seed"
+    },
+    "sky_cloud_portal_kit": {
+      "textures": "textures/items/sky_cloud_portal_kit"
+    }
+  }
+}

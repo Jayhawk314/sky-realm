@@ -1,0 +1,222 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sky:whale",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "properties": {
+        "sky:flying": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "sky:drifting": {
+        "minecraft:movement": {
+          "value": 0.012
+        },
+        "minecraft:flying_speed": {
+          "value": 0.012
+        }
+      },
+      "sky:cruising": {
+        "minecraft:movement": {
+          "value": 0.022
+        },
+        "minecraft:flying_speed": {
+          "value": 0.022
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "sky_flyer",
+          "sky_whale",
+          "mob"
+        ]
+      },
+      "minecraft:health": {
+        "value": 80,
+        "max": 80
+      },
+      "minecraft:collision_box": {
+        "width": 3.0,
+        "height": 2.4
+      },
+      "minecraft:physics": {
+        "has_gravity": false
+      },
+      "minecraft:can_fly": {},
+      "minecraft:is_tamed": {},
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "fly_into_wall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "suffocation",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:pushable_by_block": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:navigation.float": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true,
+        "avoid_water": true
+      },
+      "minecraft:home": {
+        "restriction_radius": 48,
+        "restriction_type": "random_movement"
+      },
+      "minecraft:behavior.float_wander": {
+        "priority": 7,
+        "must_reach": true,
+        "random_reselect": true,
+        "navigate_around_surface": true,
+        "additional_collision_buffer": true,
+        "use_home_position_restriction": true,
+        "surface_xz_dist": 16,
+        "surface_y_dist": 8,
+        "float_duration": [
+          3.0,
+          8.0
+        ]
+      },
+      "minecraft:rideable": {
+        "seat_count": 4,
+        "family_types": [
+          "player"
+        ],
+        "interact_text": "action.interact.ride.horse",
+        "pull_in_entities": false,
+        "seats": [
+          {
+            "position": [
+              0.4,
+              2.3,
+              0.45
+            ],
+            "min_rider_count": 0,
+            "max_rider_count": 4
+          },
+          {
+            "position": [
+              -0.4,
+              2.3,
+              0.45
+            ],
+            "min_rider_count": 1,
+            "max_rider_count": 4
+          },
+          {
+            "position": [
+              0.4,
+              2.3,
+              -0.25
+            ],
+            "min_rider_count": 2,
+            "max_rider_count": 4
+          },
+          {
+            "position": [
+              -0.4,
+              2.3,
+              -0.25
+            ],
+            "min_rider_count": 3,
+            "max_rider_count": 4
+          }
+        ]
+      },
+      "minecraft:free_camera_controlled": {
+        "strafe_speed_modifier": 0.6,
+        "backwards_movement_modifier": 0.4
+      },
+      "minecraft:vertical_movement_action": {
+        "vertical_velocity": 0.3
+      },
+      "minecraft:behavior.player_ride_tamed": {
+        "priority": 1
+      },
+      "minecraft:healable": {
+        "items": [
+          {
+            "item": "minecraft:cod",
+            "heal_amount": 10
+          },
+          {
+            "item": "minecraft:salmon",
+            "heal_amount": 10
+          },
+          {
+            "item": "minecraft:tropical_fish",
+            "heal_amount": 10
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "sky:drifting"
+          ]
+        },
+        "set_home_position": {}
+      },
+      "sky:take_off": {
+        "remove": {
+          "component_groups": [
+            "sky:drifting"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "sky:cruising"
+          ]
+        },
+        "set_property": {
+          "sky:flying": true
+        }
+      },
+      "sky:land": {
+        "remove": {
+          "component_groups": [
+            "sky:cruising"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "sky:drifting"
+          ]
+        },
+        "set_property": {
+          "sky:flying": false
+        },
+        "set_home_position": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sky:cargo_crate",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "sky:attached": {
+        "minecraft:physics": {
+          "has_gravity": false
+        }
+      },
+      "sky:loose": {
+        "minecraft:physics": {
+          "has_gravity": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "sky_crate",
+          "inanimate"
+        ]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 0.65
+      },
+      "minecraft:inventory": {
+        "container_type": "minecart_chest",
+        "inventory_size": 27,
+        "can_be_siphoned_from": true
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "fly_into_wall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "suffocation",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:pushable_by_block": {},
+      "minecraft:nameable": {},
+      "minecraft:persistent": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "sky:attached"
+          ]
+        }
+      },
+      "sky:orphan": {
+        "remove": {
+          "component_groups": [
+            "sky:attached"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "sky:loose"
+          ]
+        }
+      }
+    }
+  }
+}

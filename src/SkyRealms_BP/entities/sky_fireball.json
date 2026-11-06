@@ -1,0 +1,71 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sky:fireball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "sky:expired": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "projectile",
+          "sky_fireball"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.3,
+        "height": 0.3
+      },
+      "minecraft:physics": {},
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": {
+              "min": 7,
+              "max": 7
+            },
+            "knockback": true,
+            "catch_fire": true
+          },
+          "remove_on_hit": {},
+          "particle_on_hit": {
+            "particle_type": "snowballpoof",
+            "num_particles": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          }
+        },
+        "power": 2.2,
+        "gravity": 0.0,
+        "inertia": 1.0,
+        "liquid_inertia": 1.0,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "time": 4,
+        "time_down_event": {
+          "event": "sky:expire",
+          "target": "self"
+        }
+      }
+    },
+    "events": {
+      "sky:expire": {
+        "add": {
+          "component_groups": [
+            "sky:expired"
+          ]
+        }
+      }
+    }
+  }
+}

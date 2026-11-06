@@ -1,0 +1,246 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sky:blimp",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "properties": {
+        "sky:fuel": {
+          "type": "int",
+          "range": [
+            0,
+            100
+          ],
+          "default": 60,
+          "client_sync": true
+        },
+        "sky:flying": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "sky:grounded": {
+        "minecraft:physics": {
+          "has_gravity": true
+        },
+        "minecraft:movement": {
+          "value": 0.0
+        }
+      },
+      "sky:airborne": {
+        "minecraft:physics": {
+          "has_gravity": false
+        },
+        "minecraft:can_fly": {},
+        "minecraft:movement": {
+          "value": 0.026
+        },
+        "minecraft:flying_speed": {
+          "value": 0.026
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "sky_flyer",
+          "sky_vehicle",
+          "sky_blimp",
+          "inanimate"
+        ]
+      },
+      "minecraft:health": {
+        "value": 30,
+        "max": 30
+      },
+      "minecraft:collision_box": {
+        "width": 2.2,
+        "height": 3.4
+      },
+      "minecraft:rideable": {
+        "seat_count": 2,
+        "family_types": [
+          "player"
+        ],
+        "interact_text": "action.interact.ride.horse",
+        "pull_in_entities": false,
+        "seats": [
+          {
+            "position": [
+              0,
+              0.2,
+              0.55
+            ],
+            "min_rider_count": 0,
+            "max_rider_count": 2
+          },
+          {
+            "position": [
+              0,
+              0.2,
+              0.05
+            ],
+            "min_rider_count": 1,
+            "max_rider_count": 2
+          }
+        ]
+      },
+      "minecraft:free_camera_controlled": {
+        "strafe_speed_modifier": 0.8,
+        "backwards_movement_modifier": 0.5
+      },
+      "minecraft:vertical_movement_action": {
+        "vertical_velocity": 0.3
+      },
+      "minecraft:is_tamed": {},
+      "minecraft:behavior.player_ride_tamed": {
+        "priority": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "fly_into_wall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "suffocation",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:pushable_by_block": {},
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/sky_blimp.json"
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "any_of": [
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "minecraft:coal"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "minecraft:charcoal"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "int_property",
+                    "subject": "self",
+                    "domain": "sky:fuel",
+                    "operator": "<",
+                    "value": 100
+                  }
+                ]
+              },
+              "event": "sky:refuel_small",
+              "target": "self"
+            },
+            "use_item": true,
+            "swing": true,
+            "interact_text": "action.interact.sky.refuel"
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "minecraft:blaze_powder"
+                  },
+                  {
+                    "test": "int_property",
+                    "subject": "self",
+                    "domain": "sky:fuel",
+                    "operator": "<",
+                    "value": 100
+                  }
+                ]
+              },
+              "event": "sky:refuel_big",
+              "target": "self"
+            },
+            "use_item": true,
+            "swing": true,
+            "interact_text": "action.interact.sky.refuel"
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "sky:grounded"
+          ]
+        }
+      },
+      "sky:take_off": {
+        "remove": {
+          "component_groups": [
+            "sky:grounded"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "sky:airborne"
+          ]
+        },
+        "set_property": {
+          "sky:flying": true
+        }
+      },
+      "sky:land": {
+        "remove": {
+          "component_groups": [
+            "sky:airborne"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "sky:grounded"
+          ]
+        },
+        "set_property": {
+          "sky:flying": false
+        }
+      },
+      "sky:refuel_small": {
+        "set_property": {
+          "sky:fuel": "math.min(q.property('sky:fuel') + 25, 100)"
+        }
+      },
+      "sky:refuel_big": {
+        "set_property": {
+          "sky:fuel": 100
+        }
+      }
+    }
+  }
+}

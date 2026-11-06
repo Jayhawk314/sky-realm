@@ -1,0 +1,377 @@
+{
+  "format_version": "1.21.110",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sky:dragon",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "properties": {
+        "sky:flying": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "sky:baby": {
+        "minecraft:is_baby": {},
+        "minecraft:scale": {
+          "value": 0.45
+        },
+        "minecraft:health": {
+          "value": 14,
+          "max": 14
+        },
+        "minecraft:ageable": {
+          "duration": 1200,
+          "feed_items": [
+            {
+              "item": "minecraft:cooked_beef",
+              "growth": 0.1
+            },
+            {
+              "item": "minecraft:cooked_porkchop",
+              "growth": 0.1
+            },
+            {
+              "item": "minecraft:cooked_chicken",
+              "growth": 0.1
+            },
+            {
+              "item": "minecraft:cooked_mutton",
+              "growth": 0.1
+            },
+            {
+              "item": "minecraft:cooked_cod",
+              "growth": 0.1
+            },
+            {
+              "item": "minecraft:cooked_salmon",
+              "growth": 0.1
+            }
+          ],
+          "grow_up": {
+            "event": "sky:grow_up",
+            "target": "self"
+          }
+        }
+      },
+      "sky:baby_wild": {
+        "minecraft:tameable": {
+          "probability": 1.0,
+          "tame_items": [
+            "minecraft:cod",
+            "minecraft:salmon"
+          ],
+          "tame_event": {
+            "event": "sky:on_tame",
+            "target": "self"
+          }
+        }
+      },
+      "sky:adult": {
+        "minecraft:health": {
+          "value": 40,
+          "max": 40
+        }
+      },
+      "sky:adult_wild": {
+        "minecraft:tameable": {
+          "probability": 0.34,
+          "tame_items": [
+            "minecraft:cod",
+            "minecraft:salmon"
+          ],
+          "tame_event": {
+            "event": "sky:on_tame",
+            "target": "self"
+          }
+        }
+      },
+      "sky:tamed": {
+        "minecraft:is_tamed": {},
+        "minecraft:behavior.follow_owner": {
+          "priority": 4,
+          "speed_multiplier": 1.2,
+          "start_distance": 10,
+          "stop_distance": 3,
+          "can_teleport": true
+        }
+      },
+      "sky:adult_tamed": {
+        "minecraft:rideable": {
+          "seat_count": 2,
+          "family_types": [
+            "player"
+          ],
+          "interact_text": "action.interact.ride.horse",
+          "pull_in_entities": false,
+          "seats": [
+            {
+              "position": [
+                0,
+                1.1,
+                0.2
+              ],
+              "min_rider_count": 0,
+              "max_rider_count": 2
+            },
+            {
+              "position": [
+                0,
+                1.1,
+                -0.35
+              ],
+              "min_rider_count": 1,
+              "max_rider_count": 2
+            }
+          ]
+        },
+        "minecraft:free_camera_controlled": {
+          "strafe_speed_modifier": 0.8,
+          "backwards_movement_modifier": 0.5
+        },
+        "minecraft:vertical_movement_action": {
+          "vertical_velocity": 0.5
+        },
+        "minecraft:behavior.player_ride_tamed": {
+          "priority": 1
+        }
+      },
+      "sky:grounded": {
+        "minecraft:physics": {
+          "has_gravity": true
+        },
+        "minecraft:movement": {
+          "value": 0.25
+        }
+      },
+      "sky:airborne": {
+        "minecraft:physics": {
+          "has_gravity": false
+        },
+        "minecraft:can_fly": {},
+        "minecraft:movement": {
+          "value": 0.042
+        },
+        "minecraft:flying_speed": {
+          "value": 0.042
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "sky_flyer",
+          "sky_dragon",
+          "mob"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.8,
+        "height": 1.6
+      },
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "fly_into_wall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "suffocation",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true,
+        "avoid_water": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:follow_range": {
+        "value": 24,
+        "max": 24
+      },
+      "minecraft:pushable_by_entity": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 8,
+        "probability": 0.05
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:healable": {
+        "items": [
+          {
+            "item": "minecraft:cooked_beef",
+            "heal_amount": 6
+          },
+          {
+            "item": "minecraft:cooked_porkchop",
+            "heal_amount": 6
+          },
+          {
+            "item": "minecraft:cooked_chicken",
+            "heal_amount": 6
+          },
+          {
+            "item": "minecraft:cooked_mutton",
+            "heal_amount": 6
+          },
+          {
+            "item": "minecraft:cooked_cod",
+            "heal_amount": 6
+          },
+          {
+            "item": "minecraft:cooked_salmon",
+            "heal_amount": 6
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "sky:adult",
+            "sky:adult_wild",
+            "sky:grounded"
+          ]
+        }
+      },
+      "sky:spawn_baby": {
+        "add": {
+          "component_groups": [
+            "sky:baby",
+            "sky:baby_wild",
+            "sky:grounded"
+          ]
+        }
+      },
+      "sky:grow_up": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "sky:baby",
+                "sky:baby_wild"
+              ]
+            },
+            "add": {
+              "component_groups": [
+                "sky:adult"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_component",
+              "subject": "self",
+              "value": "minecraft:is_tamed"
+            },
+            "add": {
+              "component_groups": [
+                "sky:adult_tamed"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_component",
+              "subject": "self",
+              "operator": "!=",
+              "value": "minecraft:is_tamed"
+            },
+            "add": {
+              "component_groups": [
+                "sky:adult_wild"
+              ]
+            }
+          }
+        ]
+      },
+      "sky:on_tame": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "sky:baby_wild",
+                "sky:adult_wild"
+              ]
+            },
+            "add": {
+              "component_groups": [
+                "sky:tamed"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "is_baby",
+              "subject": "self",
+              "value": false
+            },
+            "add": {
+              "component_groups": [
+                "sky:adult_tamed"
+              ]
+            }
+          }
+        ]
+      },
+      "sky:take_off": {
+        "remove": {
+          "component_groups": [
+            "sky:grounded"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "sky:airborne"
+          ]
+        },
+        "set_property": {
+          "sky:flying": true
+        }
+      },
+      "sky:land": {
+        "remove": {
+          "component_groups": [
+            "sky:airborne"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "sky:grounded"
+          ]
+        },
+        "set_property": {
+          "sky:flying": false
+        }
+      }
+    }
+  }
+}

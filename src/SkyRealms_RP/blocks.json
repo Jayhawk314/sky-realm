@@ -1,0 +1,9 @@
+{
+  "format_version": "1.21.40",
+  "sky:cloud": {
+    "sound": "cloth"
+  },
+  "sky:cloud_portal": {
+    "sound": "glass"
+  }
+}

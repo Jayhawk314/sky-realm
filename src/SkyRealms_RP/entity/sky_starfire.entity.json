@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:starfire",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_starfire"
+      },
+      "geometry": {
+        "default": "geometry.sky_starfire"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "spin": "animation.sky.spin"
+      },
+      "scripts": {
+        "animate": [
+          "spin"
+        ]
+      }
+    }
+  }
+}

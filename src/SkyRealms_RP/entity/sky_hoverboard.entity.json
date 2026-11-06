@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:hoverboard",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_hoverboard"
+      },
+      "geometry": {
+        "default": "geometry.sky_hoverboard"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "bob": "animation.sky.hover_bob"
+      },
+      "scripts": {
+        "animate": [
+          "bob"
+        ]
+      }
+    }
+  }
+}

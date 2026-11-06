@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:dragon",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_dragon"
+      },
+      "geometry": {
+        "default": "geometry.sky_dragon"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "wings": "animation.sky.dragon_wings",
+        "walk": "animation.sky.dragon_walk",
+        "tail": "animation.sky.dragon_tail",
+        "look": "animation.sky.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "wings",
+          "walk",
+          "tail",
+          "look"
+        ]
+      },
+      "spawn_egg": {
+        "base_color": "#B62E28",
+        "overlay_color": "#F2C14E"
+      }
+    }
+  }
+}

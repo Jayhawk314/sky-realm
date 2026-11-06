@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "sky:craft_whale_song"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:noteblock"
+      },
+      {
+        "item": "minecraft:feather"
+      },
+      {
+        "item": "minecraft:cod"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "sky:whale_song",
+      "count": 1
+    }
+  }
+}

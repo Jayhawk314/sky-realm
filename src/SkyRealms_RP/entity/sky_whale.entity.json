@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:whale",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_whale"
+      },
+      "geometry": {
+        "default": "geometry.sky_whale"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "swim": "animation.sky.whale_swim"
+      },
+      "scripts": {
+        "animate": [
+          "swim"
+        ]
+      },
+      "spawn_egg": {
+        "base_color": "#46649A",
+        "overlay_color": "#E2DCCA"
+      }
+    }
+  }
+}

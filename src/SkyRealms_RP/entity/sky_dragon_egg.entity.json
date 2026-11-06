@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:dragon_egg",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_dragon_egg"
+      },
+      "geometry": {
+        "default": "geometry.sky_dragon_egg"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "wobble": "animation.sky.egg_wobble"
+      },
+      "scripts": {
+        "animate": [
+          "wobble"
+        ]
+      }
+    }
+  }
+}

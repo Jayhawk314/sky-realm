@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:blimp",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_blimp"
+      },
+      "geometry": {
+        "default": "geometry.sky_blimp"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "blimp": "animation.sky.blimp"
+      },
+      "scripts": {
+        "animate": [
+          "blimp"
+        ]
+      }
+    }
+  }
+}

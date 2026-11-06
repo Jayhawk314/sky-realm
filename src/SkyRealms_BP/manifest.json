@@ -1,0 +1,59 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Sky Realms (Behavior)",
+    "description": "Fly fighters, blimps, hoverboards, dragons and sky whales. Race through rings. Grow floating islands and bouncy clouds, and find the secret Cloud Realm.",
+    "uuid": "89aafcb5-8a37-46c4-b148-2a372eee9eba",
+    "version": [
+      1,
+      2,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      110
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "f706c5f2-1c37-4f95-9d27-24be4d905ff5",
+      "version": [
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "ac68ba45-025f-4a8c-b57a-168524d57253",
+      "version": [
+        1,
+        2,
+        0
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "f302cac7-0811-4a08-a35b-c952ef1dde20",
+      "version": [
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.0.0"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Sky Realms crew"
+    ]
+  }
+}

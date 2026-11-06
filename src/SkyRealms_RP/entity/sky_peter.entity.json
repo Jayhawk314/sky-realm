@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sky:peter",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sky_peter"
+      },
+      "geometry": {
+        "default": "geometry.sky_peter"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "wings": "animation.sky.peter_wings",
+        "walk": "animation.sky.peter_walk",
+        "tail": "animation.sky.peter_tail",
+        "look": "animation.sky.peter_look"
+      },
+      "scripts": {
+        "animate": [
+          "wings",
+          "walk",
+          "tail",
+          "look"
+        ]
+      },
+      "spawn_egg": {
+        "base_color": "#1E2A60",
+        "overlay_color": "#78D2FF"
+      }
+    }
+  }
+}
